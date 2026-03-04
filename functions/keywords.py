@@ -8,3 +8,10 @@ volume_of_box(*box_dimensions)
 
 other_box_dimensions = (7, 3, 4)
 volume_of_box(*other_box_dimensions)
+
+other_box_dimensions = {
+    "length": 15,
+    "width": 7,
+    "height": 3
+}
+volume_of_box(**other_box_dimensions)
