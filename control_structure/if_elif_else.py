@@ -17,6 +17,7 @@ def check_car(car):
         print("This is a Honda car.")    
     else:
         print(f"This is not a Toyota car. It is a {car}.")    
-check_car("Toyota")
+check_car("Toyota\
+    ")
 check_car("Honda")
 check_car("Ford")
