@@ -116,7 +116,25 @@ def average_rating(inventory):
 # print("Average rating of products:", average_rating(store_inventory))
 
 # 3. create a function that returns the total revenue from all products in the store inventory.
+def total_revenue(inventory):
+    total = 0
+    for item in inventory.values():
+        if "variants" in item:
+            for variant in item["variants"]:
+                total += variant.get("price", 0) * variant.get("stock",0)
+        elif "stock" in item and isinstance(item["stock"], dict):
+            for tier, stock in item["stock"].items():
+                price = item ["price_tiers"].get(tier, 0)
+                total += price*stock
+        elif "models" in item and isinstance(item["models"], dict):
+            for model in item ["models"].values():
+                total += model.get("price", 0) * model.get("stock", 0)
+        elif "models" in item and isinstance(item["models"], list):
+            for model in item["models"]:
+                total += model.get("price", 0) * model.get("stock", 0)
+    return total
 
+# print("Total revenue from products: ", total_revenue(store_inventory)) 
 # 4. create a function that returns the total number of suppliers in the store inventory.
 def total_suppliers(inventory):
     suppliers = set()
@@ -136,6 +154,15 @@ def total_items_on_sale(inventory):
 # print("Total number of items on sale:", total_items_on_sale(store_inventory))
 
 # 6. create a function that returns the total number of products in a specific category
+def total_products_in_category(inventory, category_name):
+    count = 0
+    for item in inventory.values():
+        if item.get("category") == category_name:
+            count+= 1
+    return count
+print(total_products_in_category(store_inventory, "Electronics"))
+
+
 # 7. create a function that returns the total number of models in a specific product
 
 def total_models(inventory, product_name):
@@ -150,4 +177,4 @@ def total_models(inventory, product_name):
     if isinstance(product, dict) and "variants" in product:
         return len(product["variants"])
     return "No models found for this product"
-print("Total models for Desk Chair:", total_models(store_inventory, "Desk Chair"))
+# print("Total models for Desk Chair:", total_models(store_inventory, "Desk Chair"))
