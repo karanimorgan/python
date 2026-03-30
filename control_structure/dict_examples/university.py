@@ -104,4 +104,11 @@ def list_students_in_course(university, course_code):
 
 # list students by faculty
 def list_all_students_by_faculty(university, faculty_name):
-    pass
+    students = []
+    faculty = university.get('faculties',{}).get(faculty_name)
+    for department in faculty.get('departments',{}).values():
+        for student_info in department.get('students',{}).values():
+            students.append(student_info['name'])
+    return students
+# print("Students in Faculty of science:", list_all_students_by_faculty(goldentech_university, "Faculty of Science"))
+print("Students in faculty of Business:", list_all_students_by_faculty(goldentech_university, "Faculty of Business"))
