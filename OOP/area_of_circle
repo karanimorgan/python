@@ -1,0 +1,14 @@
+class Area:
+    def __init__(self, diameter):
+        self.diameter = diameter
+
+
+    def radius(self):
+        return self.diameter / 2
+    
+    def area(self):
+      return 3.14 * (self.radius() ** 2)
+
+# Create an instance of the Area class
+circle = Area(10)
+print(f"The area of the circle with diameter {circle.diameter} is {circle.area()}")

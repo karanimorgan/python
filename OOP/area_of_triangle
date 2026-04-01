@@ -1,0 +1,9 @@
+class Area:
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+    def area(self): 
+        return 0.5 * self.base * self.height 
+    
+triangle = Area(20,15)
+print(f"The area of the triangle with base {triangle.base} and height {triangle.height} is {triangle.area()}")
