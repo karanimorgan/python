@@ -34,4 +34,4 @@ if __name__ == "__main__":
     manager.add_product
     print(manager.products)
 manager.list_products()
-pass
+manager.find_product_by_name("Bata shoes")
