@@ -1,25 +1,25 @@
-class libraryItem:
+class LibraryItem:
     def __init__(self, title, author, publication_year):
         self.title = title
         self.author = author
         self.publication_year = publication_year
 
 # createanother class book that inherits from libraryItem
-class Book(libraryItem):
+class Book(LibraryItem):
     def __init__(self, title, author, genre):
         super().__init__(title, author, genre)
         self.genre = genre
     def book_details(self):
         return f"Title: {self.title}, Author: {self.author}, Genre: {self.genre}"
 # create another class magazine that inherits from libraryItem
-class Magazine(libraryItem):
+class Magazine(LibraryItem):
     def __init__(self, title, author, issue_number):
         super().__init__(title, author, issue_number)
         self.issue_number = issue_number
     def magazine_details(self):
         return f"Title: {self.title}, Author: {self.author}, Issue Number: {self.issue_number}"
 # create another class DVD that inherits from libraryitem
-class DVD(libraryItem):
+class DVD(LibraryItem):
     def __init__(self, title, author, duration):
         super().__init__(title, author, duration)
         self.duration = duration
